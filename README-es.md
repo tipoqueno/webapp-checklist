@@ -13,31 +13,31 @@ La idea aquí es que la mayoría de nosotros ya deberíamos saber la mayoría de
 * No coloques las direcciones de correo electrónico de los usuarios en texto sin formato, ya que recibirán spam hasta la muerte.
 * Agrega el atributo `rel="nofollow"` a los enlaces generados por el usuario [para evitar el spam](https://es.wikipedia.org/wiki/Nofollow).
 * [Define límites bien analizados en tu sitio](http://www.codinghorror.com/blog/archives/001228.html). Esto también compete a la Seguridad.
-* Aprenda cómo hacer [Mejora progresiva](https://es.wikipedia.org/wiki/Mejora_progresiva).
+* Aprende cómo hacer [Mejora progresiva](https://es.wikipedia.org/wiki/Mejora_progresiva).
 * [Redirect After Post](https://es.wikipedia.org/wiki/Post/Redirect/Get) si ese envío fue exitoso, para evitar la actualización al volverse a enviar.
-* No olvides tener en consideración a la Accesibilidad. Siempre es una buena idea y, en determinadas circunstancias, es un [requisito legal](http://www.section508.gov/). La [WAI-ARIA](http://www.w3.org/WAI/intro/aria) y la [WCAG 2](http://www.w3.org/TR/WCAG20/) son buenos recursos en este área.
-* [No me hagas pensar (libro)](http://www.sensible.com/dmmt.html)
+* No olvides tener en consideración a la Accesibilidad. Siempre es una buena idea y, en determinadas circunstancias, es un [requisito legal](http://www.section508.gov/). La [WAI-ARIA](http://www.w3.org/WAI/intro/aria) y la [WCAG 2](http://www.codexexempla.org/traducciones/pautas-accesibilidad-contenido-web-2.0.htm) son buenos recursos en este área.
+* Lee el libro [No me hagas pensar](http://www.sensible.com/dmmt.html)
 
 
-## Security
+## Seguridad
 
-* It's a lot to digest but the [OWASP development guide](http://www.owasp.org/index.php/Category:OWASP_Guide_Project) covers Web Site security from top to bottom.
-* Know about Injection especially [SQL injection](http://en.wikipedia.org/wiki/SQL_injection) and how to prevent it.
-* Never trust user input, nor anything else that comes in the request (which includes cookies and hidden form field values!).
-* Hash passwords using [salt](http://security.stackexchange.com/q/21263/396) and use different salts for your rows to prevent rainbow attacks. Use a slow hashing algorithm, such as bcrypt (time tested) or scrypt (even stronger, but newer) ([1](http://www.tarsnap.com/scrypt.html), [2](http://it.slashdot.org/comments.pl?sid=1987632&cid=35149842)), for storing passwords. ([How To Safely Store A Password](http://codahale.com/how-to-safely-store-a-password/)). The [NIST also approves of PBKDF2 to hash passwords](http://security.stackexchange.com/q/7689/396)", and it's [FIPS approved in .NET](http://security.stackexchange.com/a/2136/396) (more info [here](http://security.stackexchange.com/questions/211/how-to-securely-hash-passwords)). *Avoid* using MD5 or SHA family directly.
-* [Don't try to come up with your own fancy authentication system](http://stackoverflow.com/questions/1581610/how-can-i-store-my-users-passwords-safely/1581919#1581919). It's such an easy thing to get wrong in subtle and untestable ways and you wouldn't even know it until _after_ you're hacked.
-* Know the [rules for processing credit cards](https://www.pcisecuritystandards.org/). ([See this question as well](http://stackoverflow.com/questions/51094/payment-processors-what-do-i-need-to-know-if-i-want-to-accept-credit-cards-on-m))
-* Use [SSL](http://www.mozilla.org/projects/security/pki/nss/ssl/draft302.txt)/[HTTPS](http://en.wikipedia.org/wiki/Https) for login and any pages where sensitive data is entered (like credit card info).
-* [Prevent session hijacking](http://en.wikipedia.org/wiki/Session_hijacking#Prevention).
-* Avoid [cross site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting) (XSS).
-* Avoid [cross site request forgeries](http://en.wikipedia.org/wiki/Cross-site_request_forgery) (CSRF).
-* Avoid [Clickjacking](http://en.wikipedia.org/wiki/Clickjacking).
-* Keep your system(s) up to date with the latest patches.
-* Make sure your database connection information is secured.
-* Keep yourself informed about the latest attack techniques and vulnerabilities affecting your platform.
-* Read [The Google Browser Security Handbook](http://code.google.com/p/browsersec/wiki/Main).
-* Read [The Web Application Hacker's Handbook](http://amzn.com/0470170778).
-* Consider [The principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Try to run your app server [as non-root](http://security.stackexchange.com/questions/47576/do-simple-linux-servers-really-need-a-non-root-user-for-security-reasons). ([tomcat example](http://tomcat.apache.org/tomcat-8.0-doc/security-howto.html#Non-Tomcat_settings))
+* Es mucho para digerir, pero la [guía de desarrollo de OWASP](http://www.owasp.org/index.php/Category:OWASP_Guide_Project) cubre la seguridad de  sitios web de arriba a abajo.
+* Conoce sobre Inyección (especialmente [Inyección SQL](http://en.wikipedia.org/wiki/SQL_injection)), y sobre cómo prevenirla.
+* Nunca confíes en el ingreso de información por parte del usuario ni en ninguna otra cosa que venga en el request (¡que incluye cookies y valores de campos de formulario ocultos!).
+* Encripta las contraseñas usando [salt](http://security.stackexchange.com/q/21263/396) y usa diferentes salts en tus filas para evitar ataques arco iris. Utiliza un algoritmo hash lento, como bcrypt (probado por el tiempo) o scrypt (más fuerte, pero más nuevo) ([1](http://www.tarsnap.com/scrypt.html), [2](http://it.slashdot.org/comments.pl?sid=1987632&cid=35149842)), para almacenar contraseñas. ([Cómo guardar una contraseña de forma segura](http://codahale.com/how-to-safely-store-a-password/)). El [NIST también aprueba PBKDF2 para encriptar contraseñas](http://security.stackexchange.com/q/7689/396), y está [aprobado por FIPS en .NET](http://security.stackexchange.com/ a / 2136/396) (más información [aquí](http://security.stackexchange.com/questions/211/how-to-securely-hash-passwords)). *Evita* usar la familia MD5 o SHA directamente.
+* [No trates de crear tu fantástico sistema de autenticación](http://stackoverflow.com/questions/1581610/how-can-i-store-my-users-passwords-safely/1581919#1581919). Es tan fácil equivocarse en formas sutiles e incontrolables, y ni siquiera lo sabrías hasta _después_ de que seas hackeado.
+* Conoce las [reglas para procesar tarjetas de crédito](https://www.pcisecuritystandards.org/). ([Mira esta pregunta también](http://stackoverflow.com/questions/51094/payment-processors-what-do-i-need-to-know-if-i-want-to-accept-credit-cards-on-m))
+* Usa [SSL](http://www.mozilla.org/projects/security/pki/nss/ssl/draft302.txt)/[HTTPS](http://en.wikipedia.org/wiki/Https) para iniciios de sesión y en cualquier página donde se ingresen datos confidenciales (como información de tarjeta de crédito).
+* [Previene el secuestro de la sesión](https://es.wikipedia.org/wiki/Secuestro_de_sesi%C3%B3n#Prevenci%C3%B3n).
+* Evita el [cross site scripting](https://es.wikipedia.org/wiki/Cross-site_scripting) (XSS).
+* Evita el [cross site request forgeries](https://es.wikipedia.org/wiki/Cross-site_request_forgery) (CSRF).
+* Evita el [clickjacking](https://es.wikipedia.org/wiki/Clickjacking).
+* Mantén tu sistema actualizado con los últimos parches.
+* Asegúrate de que la información de conexión de tu base de datos esté segura.
+* Mantente informado sobre las últimas vulnerabilidades y técnicas de ataque afectando a tu plataforma.
+* Lee el [Browser Security Handbook](http://code.google.com/p/browsersec/wiki/Main) de Google.
+* Lee [The Web Application Hacker's Handbook](http://amzn.com/0470170778).
+* Considera el [Principio de mínimo privilegio](https://es.wikipedia.org/wiki/Principio_de_m%C3%ADnimo_privilegio). Trata de correr tu servidor de aplicaciones [como no-root](http://security.stackexchange.com/questions/47576/do-simple-linux-servers-really-need-a-non-root-user-for-security-reasons). ([Ejemplo de Tomcat](http://tomcat.apache.org/tomcat-8.0-doc/security-howto.html#Non-Tomcat_settings))
 
 
 ## Performance
